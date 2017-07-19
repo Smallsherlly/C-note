@@ -1,0 +1,9 @@
+#include "managehotel.h"
+
+
+int main()
+{
+	ManageHotel man;
+	man.start();
+	return 0;
+}
