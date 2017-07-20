@@ -11,8 +11,9 @@ namespace HM
 		int m_count;
 		Room* m_room;
 	public:
-		//Hotel();
-		Hotel(int layer=5,int count=6);
+		Hotel();
+		Hotel(int layer,int count);
+		Hotel(const Hotel& hotel);
 		//分配内存
 		//设置房间号
 
@@ -20,6 +21,7 @@ namespace HM
 		bool in(int id,Guest guest);
 		bool out(int id);
 		void search();//显示所有房间入住情况
+		Room* getRoom();
 	};
 
 };

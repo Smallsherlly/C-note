@@ -1,5 +1,5 @@
 #include "managehotel.h"
-
+using namespace HM;
 
 int main()
 {

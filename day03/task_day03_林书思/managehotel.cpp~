@@ -1,15 +1,16 @@
 #include "managehotel.h"
 using namespace HM;
-
-	
-const Hotel& ManageHotel::get_hotel()
+ManageHotel::ManageHotel(){};
+ManageHotel::ManageHotel(int row,int col):m_hotel(Hotel(row,col))
+{
+}
+Hotel& ManageHotel::get_hotel()
 {
 	return m_hotel;
 }
 
 void ManageHotel::start()
 {
-	ManageHotel manage;
 	Guest guest;
 	int in_num;
 	string name;
@@ -30,8 +31,7 @@ void ManageHotel::start()
 		{
 			case 1:
 			{
-				Hotel man = manage.get_hotel();
-				man.search();
+				get_hotel().search();
 				getchar();
 				break;
 			}
@@ -46,11 +46,10 @@ void ManageHotel::start()
 				i = in_num/100;
 				j = in_num%100;
 				i = i*6+j;
-				Hotel man = manage.get_hotel();
-				if(man.getRoom()[i].getIsEmpty())
+				if(get_hotel().getRoom()[i].getIsEmpty())
 				{
-					man.in(in_num,name);
-					man.getRoom()[i].in(guest);
+					get_hotel().in(in_num,name);
+					get_hotel().getRoom()[i].in(guest);
 					cout << "入住成功！\n";
 					
 				}
@@ -59,7 +58,6 @@ void ManageHotel::start()
 					cout << "对不起，您所选的房间已有人入住。" << endl;
 				}
 				getchar();
-				man.in(in_num,name);
 				break;
 			}
 			case 3:
@@ -70,8 +68,7 @@ void ManageHotel::start()
 				i = in_num/100;
 				j = in_num%100;
 				i = i*6+j;
-				Hotel man = manage.get_hotel();
-				man.getRoom()[i].out();
+				get_hotel().getRoom()[i].out();
 				cout << "退房成功！\n";
 				getchar();
 				break;

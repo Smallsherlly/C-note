@@ -1,7 +1,7 @@
 #include "hotel.h"
 using namespace HM;
 
-//Hotel::Hotel(){};
+Hotel::Hotel(){};
 Hotel::Hotel(int layer,int count):m_layer(layer),m_count(count)
 {
 	int i = 0;
@@ -15,8 +15,25 @@ Hotel::Hotel(int layer,int count):m_layer(layer),m_count(count)
 		}
 	}
 }
-
-Hotel::~Hotel(){};
+Hotel::Hotel(const Hotel& hotel):m_layer(hotel.m_layer),m_count(hotel.m_count)
+{
+	int i = 0;
+	int j = 0;
+	m_room = new Room[m_layer*m_count];
+	for(i=0; i<m_layer; i++)
+	{
+		for(j=0; j<m_count; j++)
+		{
+			m_room[i*m_count+j].setId(i*100+j);
+		}
+	}
+}
+Hotel::~Hotel()
+{
+	if(m_room!=NULL)
+		delete[] m_room;
+	m_room = NULL;
+}
 
 Room* Hotel::getRoom()
 {

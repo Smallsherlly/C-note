@@ -10,7 +10,8 @@ namespace HM
 	{
 		Hotel m_hotel;
 	public:
-		ManageHotel(){};
+		ManageHotel();
+		ManageHotel(int row,int col);
 		const Hotel& get_hotel();
 		void start();
 	};

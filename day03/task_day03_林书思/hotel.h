@@ -6,13 +6,14 @@
 namespace HM
 {
 	class Hotel
-	{
+	{public:
 		int m_layer;
 		int m_count;
 		Room* m_room;
 	public:
-		//Hotel();
-		Hotel(int layer=5,int count=6);
+		Hotel();
+		Hotel(int layer,int count);
+		Hotel(const Hotel& hotel);
 		//分配内存
 		//设置房间号
 

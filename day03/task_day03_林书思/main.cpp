@@ -3,7 +3,7 @@ using namespace HM;
 
 int main()
 {
-	ManageHotel man;
+	ManageHotel man(5,6);
 	man.start();
 	return 0;
 }
