@@ -29,10 +29,10 @@ public:
 	Array(int *begin,int *end)// 构造函数 根据两个指针之间的元素构造Array
 	{
 		int i = 0;
-		for(i=0; *(begin+i)!=*end; i++);
+		for(i=0; begin+i!=end; i++);
 		m_len = i;
 		m_data = new int[i];	
-		for(i=0; *(begin+i)!=*end; i++)
+		for(i=0; i<m_len; i++)
 		{
 			*(m_data+i) = *(begin+i);
 		}
@@ -45,7 +45,7 @@ public:
 	}
 	Array& operator=(const Array& that)
 	{
-		if(&that != this)
+		if(&that != this && &that != NULL)
 		{
 			int i = 0;
 			Array& brr = const_cast<Array&>(that);
