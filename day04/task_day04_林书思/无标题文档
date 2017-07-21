@@ -1,0 +1,22 @@
+
+erase
+basic_string &erase( size_type index = 0, size_type num = npos );
+删除从index索引开始的num个字符, 返回*this. 
+参数index 和 num 有默认值, 这意味着erase()可以这样调用：只带有index以删除index后的所有字符，或者不带有任何参数以删除所有字符
+
+insert
+basic_string &insert( size_type index, const char *str );
+
+
+length
+ size_type length();
+
+ 
+
+length()函数返回字符串的长度. 这个数字应该和size()返回的数字相同.
+
+ 0x001b3dad in ?? () from /lib/i386-linux-gnu/libc.so.6
+#1  0x08048f79 in String::insert (this=0xbfe91eac, index=3, 
+    str=0xbfe91ec2 "xxxx") at string.cpp:208
+#2  0x08048aa0 in main () at string.cpp:241
+

@@ -191,6 +191,7 @@ public:
 		return *this;
 	}
 	
+	
 	String& insert(size_t index,const char* str)
 	{
 		int len = strlen(m_data)+strlen(str)+1;
