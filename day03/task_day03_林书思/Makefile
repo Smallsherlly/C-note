@@ -1,11 +1,13 @@
-CC=g++
-OBJ=guest.o room.o hotel.o managehotel.o main.o
-SRC=guest.cpp room.cpp hotel.cpp managehotel.cpp main.cpp
-BIN=ManagerHotel
 
-all:obj
-	$(CC)  $(OBJ) -o $(BIN)
-obj:
-	$(CC) -c $(SRC)
+OBJ=guest.o room.o hotel.o managehotel.o main.o
+
+ManageHotel:$(OBJ)
+	$(CXX) $(OBJ) -o ManageHotel
+main.o:main.cpp  
+hotel.o:hotel.cpp hotel.h
+guest.o:guest.cpp guest.h
+room.o:room.cpp guest.h
+managehotel.o:managehotel.cpp managehotel.h
+
 clean:
-	rm $(OBJ) $(BIN) *.h.gch
+	-rm $(OBJ)

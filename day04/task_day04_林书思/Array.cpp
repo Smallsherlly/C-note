@@ -60,7 +60,7 @@ public:
 		}
 		return *this;
 	}
-	size_t at(size_t i)// 获得下标为i的元素
+	int at(size_t i)// 获得下标为i的元素
 	{
 		return m_data[i];
 	}
@@ -83,6 +83,12 @@ public:
 		return m_len;
 	}
 
+	int& operator[](int i)
+	{
+		return m_data[i];	
+	}
+
+friend	int& operator++(int& i);
 };
 
 
@@ -92,14 +98,6 @@ int main()
 	int *p1 = brr+1;
 	int *p2 = brr+8;
 	Array arr(p1,p2);
-	cout << arr.at(3) << endl;
-//	cout << arr.find(4) << endl;
-//	cout << arr.getSize() << endl;
-	Array crr(arr);
-	cout << crr.at(3) << endl;
-	Array drr;
-	drr = arr;
-	cout << drr.at(3) << endl;
-	
+	cout << arr[3]++ << endl;	
 	return 0;	
 }

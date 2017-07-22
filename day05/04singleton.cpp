@@ -1,3 +1,4 @@
+//单例模式指针对象——互斥量版
 #include <iostream>
 using namespace std;
 
