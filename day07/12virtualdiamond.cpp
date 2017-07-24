@@ -33,12 +33,12 @@ class D:public B,public C
 {
 public:
 	//直接构造中间类的基类
-	D(int a=0):A(b){}
+	D(int a=0):B(a),C(a){}
 };
 int main()
 {
 	D d(100);
-//	d.setA(9527);
+	//d.setA(9527);
 	cout << d.getA() << endl;
 	cout << d.B::m_a << endl;
 	cout << d.C::m_a << endl;
