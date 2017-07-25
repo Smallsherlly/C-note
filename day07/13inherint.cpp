@@ -4,7 +4,7 @@ using namespace std;
 class A
 {
 public:
-	void func()
+	virtual void func()
 	{
 		cout << "A func()" << endl;
 	}
@@ -13,7 +13,7 @@ public:
 class B:public A
 {
 public:
-	void func()
+	virtual void func()
 	{
 		cout << "B func()" <<endl;
 	}

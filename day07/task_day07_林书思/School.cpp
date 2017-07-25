@@ -64,5 +64,6 @@ int main()
 	Tutor tt("猪哥",99);
 	cout << tt.getName() << ":" << tt.getAge() << endl;
 	cout << tt.Student::getName() << endl;
+	cout << tt.Teacher::getName() << endl;
 	return 0;	
 }
