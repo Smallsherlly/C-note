@@ -13,7 +13,7 @@ public:
 
 };
 
-class GeneraStaff:virtual public Employee
+class GeneraStaff: virtual public Employee
 {
 public:
 	GeneraStaff(int salary):Employee(salary){}
@@ -23,7 +23,7 @@ public:
 	}
 };
 
-class Technologist:virtual public Employee
+class Technologist: virtual public Employee
 {
 public:
 	int m_j;
@@ -35,7 +35,7 @@ public:
 	}
 };
 
-class Saler:virtual public Employee
+class Saler: virtual public Employee
 {
 public:
 	int m_t;
@@ -47,7 +47,7 @@ public:
 	}
 };
 
-class Manager:virtual public Employee
+class Manager: virtual public Employee
 {
 public:
 	int m_h;
