@@ -46,24 +46,16 @@ void ManagerviewConsoleImp1::add()
 {
 	string name;
 	string psw;
-	static int id = 10000;
 	
-	ifstream fin("./data/id.dat");
-	if(fin)
-		fin >> id;
-		
-	fin.close();
+	
+	int id = generator_id();
 
 	cout << "请输入管理员用户名：\n";
 	cin >> name;
 	cout << "请输入管理员密码：\n";
 	cin >> psw;
 	m_service->addManager(id,name.c_str(),psw.c_str());
-	id++;
-	ofstream fout("./data/id.dat");
-	if(fout)
-		fout << id;
-	fout.close();
+	
 	
 	cin.get();
 	anykey();

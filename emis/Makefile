@@ -14,4 +14,4 @@ manager.o:manager.cpp manager.h
 
 managerdao_file_imp1.o:managerdao_file_imp1.cpp managerdao_file_imp1.h managerdao.h 
 clean:
-	rm $(OBJ) $(BIN) *.cpp~ *.h~
+	-rm $(OBJ) $(BIN) *.cpp~ *.h~  *.h.gch

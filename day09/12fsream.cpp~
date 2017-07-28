@@ -16,7 +16,7 @@ public:
 };
 ostream& operator<<(ostream& os,const Person& p)
 {
-	return os << p.m_name << " " << p.m_age;
+	return os << p.m_name << ":" << p.m_age;
 }
 istream& operator>>(istream& is,Person& p)
 {

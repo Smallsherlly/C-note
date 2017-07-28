@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
+#include <typeinfo>
 using namespace std;
 
 class Card
@@ -225,6 +226,12 @@ int main()
 	a[0] = new ZG(&c1);
 	a[1] = new ZS(&c2);
 	a[2] = new JS(&c3);
+	/*
+	if(typeid(JS).name() == typeid(*a[2]).name())
+		cout << "YES\n";
+	else
+		cout << "NO\n";
+		*/
 	while(1)
 	{
 		cout << "请输入您的卡号：\n";
@@ -270,7 +277,10 @@ int main()
 				}else if(choice == 2)
 				{
 					if(a[i]->getMoney2(money))
+					{
 						cout<< "取款成功～" << endl;
+						anykey();
+					}
 				}
 				break;
 			case 2:
@@ -290,26 +300,33 @@ int main()
 				if(j==3)
 				{
 					cout<< "该账户不存在！\n";
+					anykey();
 					break;
 				}
 				if(choice == 1)
 				{
 					if(a[i]->sendMoney1(money,a[j]->getCard()))
 						cout<< "汇款成功～" << endl;
+						anykey();
 				}else if(choice == 2)
 				{
 					if(a[i]->sendMoney2(money,a[j]->getCard()))
 						cout<< "汇款成功～" << endl;
+						anykey();
 				}
 				break;
 			case 3:
 				cout << "余额：" << a[i]->checkMoney()<< endl;
+				anykey();
 				break;
 			case 4:
 				cout << "请输入新密码：\n";
 				cin >> psw;
 				if(a[i]->changePsw(psw))
-				cout << "修改密码成功～\n" ; 
+				{
+					cout << "修改密码成功～\n" ; 
+					anykey();
+				}
 			case 5:
 				return 0;
 		}

@@ -24,7 +24,7 @@ bool ManagerServiceImp1::deleteManager(int id)
 	vector<Manager>::iterator vs = m_managers.begin();
 	for(;(*vs).getId()!=id;vs++);
 		m_managers.erase(vs);
-	
+	m_dao->save(m_managers);
 }
 
 
