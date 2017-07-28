@@ -1,0 +1,19 @@
+#include "manager.h"
+#include <cstring>
+
+Manager::Manager(int id,const char* name,const char* psw)
+{
+	m_id = id;
+	strcpy(m_name,name);
+	strcpy(m_password,psw);
+}
+
+int Manager::getId()
+{
+	return m_id;
+}
+
+ostream& operator<<(ostream& os,Manager m)
+{
+	return os << m.m_id << ":" << m.m_name << ":" << m.m_password << endl;
+}

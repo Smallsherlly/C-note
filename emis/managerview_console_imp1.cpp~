@@ -1,0 +1,86 @@
+#include "managerview_console_imp1.h"
+#include "tools.h"
+#include <fstream>
+ManagerviewConsoleImp1::ManagerviewConsoleImp1()
+{
+	m_service = new ManagerServiceImp1();
+}
+void ManagerviewConsoleImp1::menu()
+{
+	int choice;
+	while(1)
+	{
+		system("clear");
+		cout << "企业管理信息系统\n";
+		cout << "----------------\n";
+		cout << "[1]增加管理员\n";
+		cout << "[2]删除管理员\n";
+		cout << "[3]列出所有管理员\n";
+		cout << "[4]运营管理\n";
+		cout << "[0]退出\n";
+		cout << "---------------\n";
+		cout << "请选择：\n";
+
+		cin >> choice;
+
+		switch(choice)
+		{
+			case 1:
+				add();
+				break;
+			case 2:
+				del();
+				break;
+			case 3:
+				list();
+				break;
+			case 4:
+				break;
+			case 0:
+				return;
+		}
+	}
+}
+
+void ManagerviewConsoleImp1::add()
+{
+	string name;
+	string psw;
+	static int id = 10000;
+	
+	ifstream fin("./data/id.data");
+	if(fin)
+		fin >> id;
+		
+	fin.close();
+
+	cout << "请输入管理员用户名：\n";
+	cin >> name;
+	cout << "请输入管理员密码：\n";
+	cin >> psw;
+	m_service->addManager(id,name.c_str(),psw.c_str());
+	cin.get();
+	anykey();
+}
+
+void ManagerviewConsoleImp1::del()
+{
+	int id = 0;
+	cout << "请输入管理员ID：\n";
+	cin >> id;
+	m_service->deleteManager(id);
+}
+
+void ManagerviewConsoleImp1::list()
+{
+	m_service->listManager();
+	cin.get();
+	anykey();
+}
+
+ManagerviewConsoleImp1::~ManagerviewConsoleImp1()
+{
+	if(m_service != NULL)
+		delete m_service;
+	m_service = NULL;
+}
