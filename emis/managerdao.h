@@ -9,6 +9,8 @@ using namespace std;
 class ManagerDao
 {
 public:
+	ManagerDao(){}
+	virtual ~ManagerDao(){};
 	virtual void load(vector<Manager>& managers)=0;
 	virtual void save(vector<Manager>& managers)=0;
 

@@ -3,7 +3,9 @@
 
 int main()
 {
-	ManagerviewConsoleImp1 m;
-	m.menu();
+	ManagerView* m = new ManagerviewConsoleImp1();
+//	ManagerviewConsoleImp1 m;
+	m->menu();
+	delete m;
 	return 0;	
 }

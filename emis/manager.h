@@ -14,6 +14,7 @@ public:
 	Manager();
 	Manager(int id,const char* name,const char* psw);
 	int getId();
+	char* getPsw();
 	friend ostream& operator<<(ostream& os,Manager m);
 };
 

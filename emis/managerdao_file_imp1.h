@@ -5,6 +5,7 @@ class ManagerDaoFileImp1:public ManagerDao
 {
 public:
 	ManagerDaoFileImp1();
+	virtual ~ManagerDaoFileImp1();
 	void save(vector<Manager>& managers);
 	void load(vector<Manager>& managers);
 };

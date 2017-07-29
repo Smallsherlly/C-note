@@ -15,6 +15,8 @@ private:
 	ManagerDao* m_dao;
 public:
 	ManagerServiceImp1();
+	virtual bool login(int id,const char* psw);
+	virtual ~ManagerServiceImp1(void);
 	virtual bool addManager(int id,const char* name,const char* psw);
 	virtual vector<Manager> listManager();
 	virtual bool deleteManager(int id);

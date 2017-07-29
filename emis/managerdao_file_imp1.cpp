@@ -1,6 +1,7 @@
 #include "managerdao_file_imp1.h"
 #include <fstream>
 ManagerDaoFileImp1::ManagerDaoFileImp1(){}
+ManagerDaoFileImp1::~ManagerDaoFileImp1(){}
 void ManagerDaoFileImp1::save(vector<Manager>& managers)
 {
 	ofstream fout("./data/manager.dat");
