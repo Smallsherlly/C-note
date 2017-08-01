@@ -21,7 +21,6 @@ bool Department::deleteEmp(int id)
 			m_nEmpNum--;
 			return true;
 		}
-	return false;
 }
 
 vector<Employee> Department::listEmp()

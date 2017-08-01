@@ -41,9 +41,8 @@ bool ServiceImp1::addEmp(int id,string name,bool sex,int age)
 	for(;it!=m_vecDepts.end();it++)
 		if((*it).getId()==id)
 		{
-			//(*it).getEmployee().push_back(Employee(generator_id(),name,sex,age));
-			//(*it).addEN();
-			(*it).addEmp(generator_id(),name,sex,age);
+			(*it).getEmployee().push_back(Employee(generator_id(),name,sex,age));
+			(*it).addEN();
 			break;
 		}
 }
@@ -55,7 +54,7 @@ bool ServiceImp1::deleteEmp(int id)
 	for(;it != de.end();it++)
 	{
 		vector<Employee>& emp = (*it).getEmployee();
-		/*vector<Employee>::iterator pt = emp.begin();
+		vector<Employee>::iterator pt = emp.begin();
 		for(;pt!=emp.end();pt++)
 		{
 			if((*pt).getId()==id)
@@ -63,11 +62,8 @@ bool ServiceImp1::deleteEmp(int id)
 				emp.erase(pt);
 				(*it).delEN();
 			}
-		}*/
-		if((*it).deleteEmp(id))
-			return true;
+		}
 	}
-	return false;
 }
 
 bool ServiceImp1::modifyEmp(int id,string name,bool sex,int age)
