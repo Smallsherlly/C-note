@@ -79,6 +79,16 @@ public:
 		m_head = m_tail;
 		m_size = 0;
 	}
+	/*
+	~List(void)
+	{
+		cout << "-------------------" << endl;
+		clear();
+		delete m_tail;
+		m_tail = NULL;
+		m_head = NULL;
+	}
+	*/
 	void push_back(T data)
 	{
 		Node* node = new Node(data);
@@ -174,7 +184,7 @@ public:
 	{
 		return Iterator(m_tail);
 	}
-	bool operator<(List l)
+	bool operator<(List& l)
 	{
 		return m_size < l.m_size;
 	}
@@ -183,10 +193,11 @@ public:
 		if(*this < l)
 		{
 			List<T>::Iterator it = l.begin();
-			for(; it!=l.end(); it++)
+			for(; it!=l.end();it++)
 			{
 				insert(end(),*it);
 			}
+			m_size += l.size();
 		}else
 		{
 			List<T>::Iterator it = l.begin();
@@ -194,7 +205,7 @@ public:
 			{
 				insert(begin(),*it);
 			}
-
+			m_size += l.size();
 		}
 	}
 	void remove(const T& val)
@@ -203,7 +214,10 @@ public:
 		for(; it!=end();)
 		{
 			if(*it == val)
+			{
 				it = erase(it);
+				m_size--;
+			}
 			else
 				it++;
 
@@ -216,7 +230,10 @@ public:
 		for(; it!=end();)
 		{
 			if(fun(&(*it)))
+			{
 				it = erase(it);
+				m_size--;
+			}
 			else
 				it++;
 
@@ -258,11 +275,8 @@ int main()
 	l.merge(l2);
 	show(l.begin(),l.end());
 	l.remove(9);
-//	it = l.begin();
-//	l.erase(it);
 	show(l.begin(),l.end());
 	l.remove(func);
 	show(l.begin(),l.end());
-
 	return 0;
 }

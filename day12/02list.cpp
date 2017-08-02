@@ -63,6 +63,7 @@ int main()
 	print(l1.begin(),l1.end());
 	l1.sort();
 	print(l1.begin(),l1.end());
+//	cout << *(l1.end()) << endl;
 
 	priority_queue<Student> p;
 	p.push(Student("ming",7,1,99));
